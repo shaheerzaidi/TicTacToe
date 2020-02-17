@@ -35,7 +35,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 int resId = getResources().getIdentifier(buttonID, "id", getPackageName());
                 buttons [i][j] = findViewById(resId);
                 buttons[i][j].setOnClickListener(this);
-
             }
         }
         Button buttonReset = findViewById(R.id.button_reset);
@@ -66,7 +65,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         roundCount++;
 
-        if(checkForWin())
+        if (checkForWin())
         {
             if(player1Turn){
                 player1Wins();
@@ -85,7 +84,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             {
                 player1Turn = !player1Turn;
             }
-
     }
 
     private boolean checkForWin()
@@ -101,7 +99,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
 
-        for(int i = 0; i < 3; i++)
+        for (int i = 0; i < 3; i++)
         {
             if(field[i][0].equals(field[i][1]) && field[i][0].equals(field[i][2]) && !field[i][0].equals(""))
             {
@@ -127,7 +125,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return false;
     }
 
-    private  void player1Wins(){
+    private  void player1Wins() {
         player1Points++;
         Toast.makeText(this, "Player 1 wins", Toast.LENGTH_SHORT).show();
         updatePointsText();
@@ -141,7 +139,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         resetBoard();
     }
 
-    private void draw(){
+    private void draw() {
         Toast.makeText(this, "Draw", Toast.LENGTH_SHORT).show();
         resetBoard();
     }
