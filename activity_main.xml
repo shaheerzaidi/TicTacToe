@@ -37,9 +37,7 @@
         android:text="reset"
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
-        android:layout_marginEnd="33dp"
-
-        />
+        android:layout_marginEnd="33dp"/>
 
 </RelativeLayout>
     
