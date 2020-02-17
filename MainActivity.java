@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 buttons[i][j].setOnClickListener(this);
             }
         }
+        
         Button buttonReset = findViewById(R.id.button_reset);
         buttonReset.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,22 +102,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         for (int i = 0; i < 3; i++)
         {
-            if(field[i][0].equals(field[i][1]) && field[i][0].equals(field[i][2]) && !field[i][0].equals(""))
+            if (field[i][0].equals(field[i][1]) && field[i][0].equals(field[i][2]) && !field[i][0].equals(""))
             {
                 return true;
             }
 
-            if(field[0][i].equals(field[1][i]) && field[0][i].equals(field[2][i]) && !field[0][i].equals(""))
+            if (field[0][i].equals(field[1][i]) && field[0][i].equals(field[2][i]) && !field[0][i].equals(""))
             {
                 return true;
             }
 
-            if(field[0][0].equals(field[1][1]) && field[0][0].equals(field[2][2]) && !field[0][0].equals(""))
+            if (field[0][0].equals(field[1][1]) && field[0][0].equals(field[2][2]) && !field[0][0].equals(""))
             {
                 return true;
             }
 
-            if(field[0][2].equals(field[2][2]) && field[0][0].equals(field[2][0]) && !field[0][2].equals(""))
+            if (field[0][2].equals(field[2][2]) && field[0][0].equals(field[2][0]) && !field[0][2].equals(""))
             {
                 return true;
             }
