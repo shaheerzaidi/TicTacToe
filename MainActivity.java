@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private int player2Points;
 
     private TextView textViewPlayer1;
-    private TextView getTextViewPlayer2;
+    private TextView textViewPlayer2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         textViewPlayer1 = findViewById(R.id.text_view_p1);
-        getTextViewPlayer2 = findViewById(R.id.text_view_p2);
+        textViewPlayer2 = findViewById(R.id.text_view_p2);
 
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 buttons[i][j].setOnClickListener(this);
             }
         }
-        
+
         Button buttonReset = findViewById(R.id.button_reset);
         buttonReset.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,40 +70,46 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 player2Wins();
             }
         }
-        
-        else if (roundCount == 9) {
+
+        else if(roundCount == 9)
+        {
             draw();
         }
 
-        else {
+        else
+        {
             player1Turn = !player1Turn;
         }
     }
 
-    private boolean checkForWin()
-    {
+    private boolean checkForWin() {
         String [][] field = new String[3][3];
 
-        for (int i = 0; i < 3; i++) {
+        for(int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 field[i][j] = buttons[i][j].getText().toString();
+
             }
         }
 
-        for (int i = 0; i < 3; i++) {
-            if (field[i][0].equals(field[i][1]) && field[i][0].equals(field[i][2]) && !field[i][0].equals("")) {
+        for(int i = 0; i < 3; i++) {
+            if(field[i][0].equals(field[i][1]) && field[i][0].equals(field[i][2]) && !field[i][0].equals(""))
+            {
                 return true;
             }
 
-            if (field[0][i].equals(field[1][i]) && field[0][i].equals(field[2][i]) && !field[0][i].equals("")) {
+            if(field[0][i].equals(field[1][i]) && field[0][i].equals(field[2][i]) && !field[0][i].equals(""))
+            {
                 return true;
             }
 
-            if (field[0][0].equals(field[1][1]) && field[0][0].equals(field[2][2]) && !field[0][0].equals("")) {
+            if(field[0][0].equals(field[1][1]) && field[0][0].equals(field[2][2]) && !field[0][0].equals(""))
+            {
                 return true;
             }
 
-            if (field[0][2].equals(field[1][1]) && field[0][2].equals(field[2][0]) && !field[0][2].equals("")) {
+            if(field[0][2].equals(field[1][1]) && field[0][2].equals(field[2][0]) && !field[0][2].equals(""))
+            {
                 return true;
             }
         }
@@ -131,7 +137,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void updatePointsText() {
         textViewPlayer1.setText("Player 1: " + player1Points);
-        getTextViewPlayer2.setText("Player 2: " + player2Points);
+        textViewPlayer2.setText("Player 2: " + player2Points);
     }
 
     private void resetBoard() {
@@ -140,13 +146,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 buttons[i][j].setText("");
             }
         }
-        
+
         roundCount = 0;
         player1Turn = true;
     }
 
-    private void resetGame()
-    {
+    private void resetGame() {
         player1Points = 0;
         player2Points = 0;
         updatePointsText();
